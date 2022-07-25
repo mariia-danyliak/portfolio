@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="http://web.simmons.edu/~grovesd/comm244/notes/week4/reset.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Form</title>
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #2ab8b8;
+      ;
+    }
+
+    .box {
+      background-color: white;
+      width: 400px;
+      height: 450px;
+      border-radius: 3%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .box>* {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: sans-serif;
+      font-weight: 900;
+    }
+
+    label {
+      margin: 10px 0;
+    }
+
+    .inputEl {
+      background-color: #f1f1f1;
+      border-radius: 20px;
+      border: 0px;
+      padding-top: 10px;
+      padding-right: 50px;
+      padding-bottom: 10px;
+      padding-left: 50px;
+    }
+
+    .btn {
+      background-color: hsl(180, 26%, 79%);
+      border: 0px;
+      border-radius: 20px;
+      padding: 10px 15px;
+    }
+
+    .hiden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div id="startForm">
+      <h1>Feedback Form</h1>
+      <label for="name">Name</label>
+      <input class="inputEl" id="name" placeholder="Enter name">
+
+      <label for="email">Email</label>
+      <input class="inputEl" id="email" type="email" placeholder="Enter email">
+
+      <label for="subject">Subject</label>
+      <input class="inputEl" id="subject" placeholder="Enter subject">
+
+      <label for="text">Message </label>
+      <textarea class="inputEl" id="text" placeholder="Enter message" style="height:100px"></textarea>
+      <br>
+      <button class="btn" id="buttonEl">Submit --></button>
+    </div>
+    <div id="result" class="hiden">
+
+      <dl>
+        <dt>Name</dt>
+        <dd id="nameResult"></dd>
+      </dl>
+      <dl>
+        <dt>Email</dt>
+        <dd id="emailResult"></dd>
+      </dl>
+      <dl>
+        <dt>Subject</dt>
+        <dd id="subjectResult"></dd>
+      </dl>
+      <dl>
+        <dt>Message</dt>
+        <dd id="textResult"></dd>
+      </dl>
+
+      <button class="btn" id="backButtonEl">Go Back</button>
+    </div>
+  </div>
+
+  <script>
+
+    const btn = document.getElementById('buttonEl');
+    const backBtn = document.getElementById('backButtonEl');
+
+    const formEl = document.getElementById("startForm");
+    const resultEl = document.getElementById('result');
+
+    btn.addEventListener('click', showResult)
+    backBtn.addEventListener('click', goBack)
+
+    function showResult() {
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const subject = document.getElementById("subject");
+      const message = document.getElementById("text");
+
+
+      document.getElementById("nameResult").innerHTML = name.value;
+      document.getElementById("emailResult").innerHTML = email.value;
+      document.getElementById("subjectResult").innerHTML = subject.value;
+      document.getElementById("textResult").innerHTML = text.value;
+
+      formEl.classList.add('hiden');
+      resultEl.classList.remove('hiden');
+    }
+
+    function goBack() {
+
+      resultEl.classList.add('hiden');
+      formEl.classList.remove('hiden');
+
+    }
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
